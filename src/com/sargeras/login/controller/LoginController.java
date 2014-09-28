@@ -6,7 +6,6 @@ package com.sargeras.login.controller;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -28,10 +27,13 @@ public class LoginController extends BaseController{
 	@RequestMapping(value = "validate")
 	public void toLogin(HttpServletResponse response) throws Exception {
 		logger.error("hhhh");
+		logger.debug("aaa");
 		response.getWriter().print(" this is to logging 1");
 	}
 	@RequestMapping(value="register")
 	public void register(HttpServletRequest request,HttpServletResponse response) throws Exception{
+		logger.error("register");
+		logger.debug("aaa");
 		UserVo user = new UserVo();
 		int result = 0;
 		String userName = (String)request.getParameter("usernamesignup");
