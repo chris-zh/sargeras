@@ -1,0 +1,7 @@
+http://localhost:8888/sargeras/background/to_login.do
+http://localhost:8888/sargeras/login/validate
+http://localhost:8888/sargeras/web/jsp/login/LoginRegistrationForm/index.html
+<base href="<%=basePath%>">
+http://localhost:8888/sargeras/index.jsp
+/sargeras/login/validate
+/common/css/##$34343434
