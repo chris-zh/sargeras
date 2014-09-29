@@ -3,8 +3,12 @@
  */
 package com.sargeras.login.controller;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -25,15 +29,27 @@ public class LoginController extends BaseController{
 	@Autowired
 	private LoginService service;
 	@RequestMapping(value = "validate")
-	public void toLogin(HttpServletResponse response) throws Exception {
-		logger.error("hhhh");
-		logger.debug("aaa");
-		response.getWriter().print(" this is to logging 1");
+	public void toLogin(HttpServletRequest request,HttpServletResponse response) throws Exception {
+		UserVo user = new UserVo();
+		int validate = 0;
+		List<UserVo> list = new ArrayList();
+		HttpSession session = request.getSession();
+		user.setUserName((String)request.getParameter("username"));
+		user.setUserPassword((String)request.getParameter("password"));
+		validate = service.validateLogin(user);
+		if(validate>0){
+			list = service.toLogin(user);
+			user = list.get(0);
+			session.setAttribute("user",user);
+			response.getWriter().print(" welcome,"+user.getUserName());
+		}else{
+			response.getWriter().print(" login fail,check username or password");
+		}
+		
+		
 	}
 	@RequestMapping(value="register")
 	public void register(HttpServletRequest request,HttpServletResponse response) throws Exception{
-		logger.error("register");
-		logger.debug("aaa");
 		UserVo user = new UserVo();
 		int result = 0;
 		String userName = (String)request.getParameter("usernamesignup");

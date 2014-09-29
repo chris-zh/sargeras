@@ -1,10 +1,13 @@
 package com.sargeras.login.vo;
+
+import com.sargeras.pub.vo.BaseVo;
+
 /**
  * USER对象模型
  * @author Administrator
  *
  */
-public class UserVo {
+public class UserVo extends BaseVo{
 	private long userId;
 	private String userName;
 	private String userCode;
@@ -13,7 +16,6 @@ public class UserVo {
 	private String userNickname;
 	private String insertTime;
 	private String updateTime;
-	private String lastLoginIp;
 	public long getUserId() {
 		return userId;
 	}
@@ -61,12 +63,6 @@ public class UserVo {
 	}
 	public void setUpdateTime(String updateTime) {
 		this.updateTime = updateTime;
-	}
-	public String getLastLoginIp() {
-		return lastLoginIp;
-	}
-	public void setLastLoginIp(String lastLoginIp) {
-		this.lastLoginIp = lastLoginIp;
 	}
 
 }

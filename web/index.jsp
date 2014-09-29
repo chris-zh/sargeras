@@ -1,11 +1,16 @@
 <%@ page language="java" contentType="text/html; charset=UTF8"
     pageEncoding="UTF8"%>
 <html>
+<%@ page import="com.sargeras.login.vo.UserVo"%>
 <%
 	String path = request.getContextPath();
 	String basePath = request.getScheme() + "://"
 			+ request.getServerName() + ":" + request.getServerPort()
 			+ path + "/";
+	UserVo user = (UserVo)session.getAttribute("user");
+	if(user!=null){
+		response.getWriter().print(" welcome,"+user.getUserName());
+	}
 %>
 <!--[if lt IE 7 ]> <html lang="en" class="no-js ie6 lt8"> <![endif]-->
 <!--[if IE 7 ]>    <html lang="en" class="no-js ie7 lt8"> <![endif]-->

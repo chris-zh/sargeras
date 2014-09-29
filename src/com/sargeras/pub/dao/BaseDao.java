@@ -11,5 +11,12 @@ import org.springframework.jdbc.core.JdbcTemplate;
  */
 public class BaseDao {
 	@Autowired
-	protected JdbcTemplate jdbcTemplate;
+	private JdbcTemplate jdbcTemplate;
+	/**
+	 * jdbcTemplate是线程安全的，因此可以注入给各个DAO实例使用
+	 * @return
+	 */
+	public JdbcTemplate getJdbcTemplate(){
+		return this.jdbcTemplate;
+	}
 }
