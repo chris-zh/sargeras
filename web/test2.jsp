@@ -1,7 +1,7 @@
 <!doctype html>
 <html ng-app>
 <head>
-<script src="http://localhost:8888/sargeras/frame/angular-1.0.1.min.js"></script>
+<script src="http://localhost:8888/sargeras/frame/framework/angular-1.0.1.min.js"></script>
 <script src="script.js"></script>
 </head>
 <body>

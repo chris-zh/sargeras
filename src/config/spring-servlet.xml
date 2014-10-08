@@ -16,6 +16,7 @@
 	<context:component-scan base-package="com.sargeras" />
 	<!-- 访问静态文件 -->
 	<mvc:resources mapping="/frame/**" location="/frame/" />
+	<mvc:resources mapping="/jsp/**" location="/jsp/" />
 	<!-- 通过注解，把URL映射到Controller上，该标签默认注册DefaultAnnotationHandlerMapping和AnnotationMethodHandlerAdapter -->
 <!--	<mvc:annotation-driven />-->
 	<!-- 视图解析器 -->
@@ -23,7 +24,7 @@
 		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 		<property name="viewClass"
 			value="org.springframework.web.servlet.view.JstlView" />
-		<property name="prefix" value="/WEB-INF/pages/" />
+		<property name="prefix" value="/" />
 		<property name="suffix" value=".jsp"></property>
 	</bean>
 </beans>

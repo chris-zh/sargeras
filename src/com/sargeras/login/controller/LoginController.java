@@ -29,7 +29,7 @@ public class LoginController extends BaseController{
 	@Autowired
 	private LoginService service;
 	@RequestMapping(value = "validate")
-	public void toLogin(HttpServletRequest request,HttpServletResponse response) throws Exception {
+	public String toLogin(HttpServletRequest request,HttpServletResponse response) throws Exception {
 		UserVo user = new UserVo();
 		int validate = 0;
 		List<UserVo> list = new ArrayList();
@@ -41,10 +41,11 @@ public class LoginController extends BaseController{
 			list = service.toLogin(user);
 			user = list.get(0);
 			session.setAttribute("user",user);
-			response.getWriter().print(" welcome,"+user.getUserName());
+			return "jsp/admin/admin";
 		}else{
 			response.getWriter().print(" login fail,check username or password");
 		}
+		return null;
 		
 		
 	}
@@ -63,4 +64,16 @@ public class LoginController extends BaseController{
 			response.getWriter().print("Success");
 		}
 	}
+	/**
+	 * ×¢ÏúµÇÂ¼
+	 * @param request
+	 * @return
+	 */
+	@RequestMapping(value="logout")
+	public String logout(HttpServletRequest request){
+		System.out.println("session:"+request.getSession().getAttribute("user"));
+		request.getSession().removeAttribute("user");
+		System.out.println("session:"+request.getSession().getAttribute("user"));
+		return "index";
+	} 
 }

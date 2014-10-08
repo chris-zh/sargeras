@@ -10,7 +10,6 @@ import org.springframework.stereotype.Repository;
 
 import com.sargeras.login.vo.UserVo;
 import com.sargeras.pub.dao.BaseDao;
-@Repository
 public class LoginDaoImpl  extends BaseDao implements LoginDao  {
 	@Override
 	public int register(UserVo userVo) {
@@ -25,7 +24,7 @@ public class LoginDaoImpl  extends BaseDao implements LoginDao  {
 	@Override
 	public List<UserVo> toLogin(UserVo userVo) {
 		int result = -1;
-		 List<UserVo> list = new ArrayList();
+		List<UserVo> list = new ArrayList();
 		String sql = 
 			"SELECT T.USER_ID,\n" +
 			"       T.USER_NAME,\n" + 

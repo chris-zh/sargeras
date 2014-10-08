@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF8"
     pageEncoding="UTF8"%>
-<html>
+<html >
 <%@ page import="com.sargeras.login.vo.UserVo"%>
 <%
 	String path = request.getContextPath();
@@ -27,9 +27,9 @@
         <meta name="keywords" content="html5, css3, form, switch, animation, :target, pseudo-class" />
         <meta name="author" content="Codrops" />
         <link rel="shortcut icon" href="frame/images/apple_favicon.ico"> 
-        <link rel="stylesheet" type="text/css" href="frame/css/demo.css" />
-        <link rel="stylesheet" type="text/css" href="frame/css/style.css" />
-		<link rel="stylesheet" type="text/css" href="frame/css/animate-custom.css" />
+        <link rel="stylesheet" type="text/css" href="frame/index/css/demo.css" />
+        <link rel="stylesheet" type="text/css" href="frame/index/css/style.css" />
+		<link rel="stylesheet" type="text/css" href="frame/index/css/animate-custom.css" />
     </head>
     <body>
         <div class="container">
@@ -62,11 +62,11 @@
                                 <h1>Log in</h1> 
                                 <p> 
                                     <label for="username" class="uname" data-icon="u" > Your email or username </label>
-                                    <input id="username" name="username" required="required" type="text" placeholder="myusername or mymail@mail.com"/>
+                                    <input id="username" name="username" canmove required="required" type="text" placeholder="myusername or mymail@mail.com"/>
                                 </p>
                                 <p> 
-                                    <label for="password" class="youpasswd" data-icon="p"> Your password </label>
-                                    <input id="password" name="password" required="required" type="password" placeholder="eg. X8df!90EO" /> 
+                                    <label for="password" class="youpasswd" data-icon="p" > Your password </label>
+                                    <input id="password" name="password" canmove required="required" type="password" placeholder="eg. X8df!90EO" /> 
                                 </p>
                                 <p class="keeplogin"> 
 									<input type="checkbox" name="loginkeeping" id="loginkeeping" value="loginkeeping" /> 
@@ -87,7 +87,7 @@
                                 <h1> Sign up </h1> 
                                 <p> 
                                     <label for="usernamesignup" class="uname" data-icon="u">Your username</label>
-                                    <input id="usernamesignup" name="usernamesignup" required="required" type="text" placeholder="mysuperusername690" />
+                                    <input id="usernamesignup" name="usernamesignup"  required="required" type="text" placeholder="mysuperusername690" />
                                 </p>
                                 <p> 
                                     <label for="emailsignup" class="youmail" data-icon="e" > Your email</label>
@@ -116,4 +116,16 @@
             </section>
         </div>
     </body>
+    <script type="text/javascript" src="frame/jquery-2.1.1.js"></script>
+	 <script type="text/javascript">
+	 $(document).ready(function(){
+		 $("#usernamesignup").blue(function(){
+			 if($("#usernamesignup").val().indexOf("@")>=0){
+					alert("不能包含@");
+					$("#usernamesignup").val("1");
+					return;
+				 }
+			});
+		});
+	 </script>
 </html>

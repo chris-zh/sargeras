@@ -64,5 +64,11 @@ public class UserVo extends BaseVo{
 	public void setUpdateTime(String updateTime) {
 		this.updateTime = updateTime;
 	}
+	
+	public static void main(String[] args) {
+		String a = "aa";
+		String b = "bb";
+		System.out.println(a+b);
+	}
 
 }

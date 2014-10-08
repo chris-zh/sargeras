@@ -8,5 +8,8 @@
 	http://www.springframework.org/schema/context 
 	http://www.springframework.org/schema/context/spring-context-3.0.xsd">
 	<!-- Service beans -->
+	<!-- login service -->
 	<bean name="loginService" class="com.sargeras.login.service.LoginServiceImpl" />
+	<!-- user service -->
+	<bean name="userService" class="com.sargeras.user.service.UserManageServiceImpl"/>
 </beans>
